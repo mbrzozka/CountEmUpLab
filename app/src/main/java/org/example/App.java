@@ -14,6 +14,29 @@ public class App {
   // This is a sample main function just to show you how everything works
   // You can update it with a driver program for your solution
   public static void main(String[] args) {
-      System.out.println(new App().getGreeting());
-  }
+        App app = new App();
+        System.out.println(app.getGreeting());
+        // Create a counter instance
+        GroceryCounter counter = new GroceryCounter();
+        //Demo
+        System.out.println(counter.total()); // $00.00
+        counter.tens();
+        counter.tens();
+        counter.hundredths();
+        System.out.println(counter.total()); // $20.01
+        System.out.println(counter.overflows()); // 0
+        for (int i = 0; i < 35; i++) {
+            counter.ones();
+        }
+        System.out.println(counter.total()); // $55.01
+        System.out.println(counter.overflows()); // 0
+        for (int i = 0; i < 100; i++) {
+            counter.ones();
+        }
+        System.out.println(counter.total()); // $55.01
+        System.out.println(counter.overflows()); // 1
+        counter.clear();
+        System.out.println(counter.total()); // $00.00
+        System.out.println(counter.overflows()); // 0
+    }
 }
